@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block header_title %} {{subtitle}} {% endblock %}
+{% block content %}
+
+<body>
+    <h1>Search Results</h1>
+    <ul>
+        {% for product in results %}
+            <li>{{ product.name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+{% endblock %}
