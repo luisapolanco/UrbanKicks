@@ -2,6 +2,16 @@
 {% block title %} {{title}} {% endblock %}
 {% block header_title %} {{subtitle}} {% endblock %}
 {% block content %}
-
+<body>
+    <div class="newest-products">
+        <h2>Newest Products</h2>
+        <ul>
+            {% for product in newest_products %}
+                <li>{{ product.name }}</li>
+                <!-- Mostrar más información del producto si es necesario -->
+            {% endfor %}
+        </ul>
+    </div>  
+</body>
 
 {% endblock %}
