@@ -26,7 +26,7 @@ class ClienteSignUpFrom(UserCreationForm):
     @transaction.atomic
     def save(self, commit=True):
         user = super().save(commit=False)
-        user.is_cliente = True
+        user.is_customer = True
         if commit:
             user.save()
         cliente = Customer.objects.create(user=user, payment_info = self.cleaned_data.get('payment_info'), customer_id = self.cleaned_data.get('customer_id'))
@@ -59,4 +59,4 @@ class AdmSignUpFrom(UserCreationForm):
 
 class LoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput())
-    password = forms.CharField(widget=forms.PasswordInput())    
+    password = forms.CharField(widget=forms.PasswordInput())
