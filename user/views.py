@@ -42,20 +42,3 @@ class LoginView(auth_views.LoginView):
 
         else: 
             return reverse('login')
-
-'''class LoginView(View):
-    form = LoginForm
-    def get(self, request):
-        form = LoginForm
-        return render(request, 'registration/login.html', context={'form':form})
-    def post(self, request):
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            user = authenticate(
-                username=form.cleaned_data['username'],
-                password=form.cleaned_data['password'],
-            )
-            if user is not None:
-                login(request, user)
-                return redirect('home')
-        return render(request, 'registration/login.html', context={'form':form})'''
