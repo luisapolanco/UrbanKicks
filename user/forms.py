@@ -6,15 +6,15 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-class ClienteSignUpFrom(UserCreationForm):
+class CustomerSignUpFrom(UserCreationForm):
     email = forms.EmailField(widget=forms.EmailInput())
     name = forms.CharField(widget=forms.TextInput())
-    city = forms.CharField(max_lenght = 100, widget=forms.TextInput())
-    address = forms.CharField(max_lenght = 100, widget=forms.TextInput())
-    phone_number = forms.CharField(max_lenght=10, widget=forms.TextInput())
+    city = forms.CharField(widget=forms.TextInput())
+    address = forms.CharField(widget=forms.TextInput())
+    phone_number = forms.CharField(widget=forms.TextInput())
 
-    payment_info = forms.CharField(max_lenght = 100, widget=forms.TextInput())
-    customer_id = forms.IntegerField(max_lenght= 10, widget=forms.NumberInput())
+    payment_info = forms.CharField(widget=forms.TextInput())
+    customer_id = forms.IntegerField(widget=forms.NumberInput())
 
     password1 = forms.CharField(widget=forms.PasswordInput())
     password2 = forms.CharField(widget=forms.PasswordInput())
@@ -35,11 +35,11 @@ class ClienteSignUpFrom(UserCreationForm):
 class AdmSignUpFrom(UserCreationForm):
     email = forms.EmailField(widget=forms.EmailInput())
     name = forms.CharField(widget=forms.TextInput())
-    city = forms.CharField(max_lenght = 100, widget=forms.TextInput())
-    address = forms.CharField(max_lenght = 100, widget=forms.TextInput())
-    phone_number = forms.CharField(max_lenght=10, widget=forms.TextInput())
+    city = forms.CharField(widget=forms.TextInput())
+    address = forms.CharField(widget=forms.TextInput())
+    phone_number = forms.CharField(widget=forms.TextInput())
 
-    adm_id = forms.IntegerField(max_lenght= 10, widget=forms.NumberInput())
+    adm_id = forms.IntegerField(widget=forms.NumberInput())
 
     password1 = forms.CharField(widget=forms.PasswordInput())
     password2 = forms.CharField(widget=forms.PasswordInput())
