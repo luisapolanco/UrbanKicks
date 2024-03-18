@@ -8,7 +8,7 @@ def adm_test_function(user):
         return True
     return False 
 
-def adm_access_only(message_to_deliver = "No estas autorizado para acceder a la pagina de admin, logeate como admin"):
+def adm_access_only(message_to_deliver):
     def decorator(view):
         @wraps(view)
         def _wrapped_view(request, *args, **kwargs):

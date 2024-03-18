@@ -10,7 +10,46 @@
     <p><strong>Brand:</strong> {{ product.brand }}</p>
     <p><strong>Category:</strong> {{ product.category }}</p>
     <p><strong>Created at:</strong> {{ product.created_at }}</p>
+    <br>
+    <div class="row justify">
+        <div class="col-md-2"><strong>Quantity</strong></div>
+        <div class="col-md-2">
+            <select class="form-select" id="quantity-cart">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <button type="button" value="{{ product.product_id }}" class="btn btn-secondary" id="add-cart">Add to cart</button>
+    
+    <script>
+        $(document).on('click', '#add-cart', function(e){
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '{% url 'cart_add' %}',
+                data: {
+                    product_id: $('#add-cart').val(),
+                    product_quantity: $('#quantity-cart option:selected').text(),
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                    action: 'post'
+                },
 
+                success: function(json){
+                    document.getElementById('cart_quantity').textContent = json.quantity
+                },
+
+                error: function(xhr, errmsg, err){
+
+                }
+            });
+
+        })
+    </script>
 </body>
 
 {% endblock %}
