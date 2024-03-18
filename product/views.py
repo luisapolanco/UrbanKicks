@@ -2,7 +2,8 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 from .models import Product
 from .forms import ProductForm
-
+from user.decorators import adm_access_only
+from django.utils.decorators import method_decorator
 # Create your views here.
 
 class SearchProductView(View):
@@ -13,10 +14,12 @@ class SearchProductView(View):
         return render(request, 'search_products.html', {'results': results})
 
 class CreateProductView(View):
+    @method_decorator(adm_access_only)
     def get(self, request):
         form = ProductForm()
         return render(request, 'create_product.html', {'form': form})
 
+    @method_decorator(adm_access_only)
     def post(self, request):
         form = ProductForm(request.POST)
         if form.is_valid():

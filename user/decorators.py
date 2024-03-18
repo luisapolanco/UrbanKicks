@@ -3,11 +3,6 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.http import HttpResponse
 
-def customer_test_function(user):
-    if user.is_customer:
-        return True
-    return False
-
 def adm_test_function(user):
     if user.is_adm:
         return True
