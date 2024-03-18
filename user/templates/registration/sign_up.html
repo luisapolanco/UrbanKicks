@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block header_title %} {{subtitle}} {% endblock %}
+{% block content %}
+
+<body>
+    <h1>Registro de usuarios</h1>
+    <p>Seleccione el tipo de cuenta que quiere crear</p>
+    <a href="{% url 'customer_sign_up' %}">Cliente</a>
+    <a href="{% url 'adm_sign_up' %}">Admin</a>
+</body>
+
+{% endblock %}

@@ -6,6 +6,10 @@ from django.contrib.auth import views as auth_views
 from django.urls import reverse
 # Create your views here.
 
+class SignUpView(View):
+    def get(self, request):
+        return render(request, 'registration/sign_up.html')
+    
 class CustomerSignUpView(View):
     def get(self, request):
         form = CustomerSignUpFrom

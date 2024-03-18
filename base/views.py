@@ -1,8 +1,8 @@
 from django.views.generic import View
 from product.models import Product
 from django.shortcuts import render
-
 # Create your views here.
+
 
 class HomeView(View):
 
