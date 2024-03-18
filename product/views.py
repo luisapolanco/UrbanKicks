@@ -33,17 +33,20 @@ class ProductDetailView(View):
         return render(request, 'product_detail.html', {'product': product})
 
 class ProductDeleteView(View):
+    @method_decorator(adm_access_only)
     def post(self, request, product_id):
         product = get_object_or_404(Product, pk=product_id)
         product.delete()
         return redirect('home')
     
 class ProductUpdateView(View):
+    @method_decorator(adm_access_only)
     def get(self, request, product_id):
         product = get_object_or_404(Product, pk=product_id)
         form = ProductForm(instance=product)
         return render(request, 'edit_product.html', {'form': form, 'product': product})
 
+    @method_decorator(adm_access_only)
     def post(self, request, product_id):
         product = get_object_or_404(Product, pk=product_id)
         form = ProductForm(request.POST, instance=product)
