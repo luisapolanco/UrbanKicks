@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block header_title %} {{subtitle}} {% endblock %}
+{% block content %}
+
+<body>
+    <div class="brand-list">
+        {% for product in products %}
+            <a href="">{{ product.name }}</a>
+        {% endfor %}
+    </div>
+    
+</body>
+
+{% endblock %}
