@@ -2,16 +2,112 @@
 {% block title %} {{title}} {% endblock %}
 {% block header_title %} {{subtitle}} {% endblock %}
 {% block content %}
-<body>
-    <div class="newest-products">
-        <h2>Newest Products</h2>
-        <ul>
-            {% for product in newest_products %}
-                <li>{{ product.name }}</li>
-                <!-- Mostrar más información del producto si es necesario -->
-            {% endfor %}
-        </ul>
-    </div>  
+
+<body ">
+  <div class=" row news">
+    {% for product in newest_products %}
+    <div class="card" style="width: 10rem">
+      {% for image in product.images.all %}
+      <img class="card-img-top" src="{{ image.image.url }}" alt="Card image cap">
+      {% endfor %}
+      <div class="card-body">
+        <p class="card-text">{{ product.name }}</p>
+        <p class="card-text" style="color: grey;">{{ product.brand }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+<br>
+<div class="brand-list">
+  {% for brand in brands %}
+  {% for image in brand.images.all %}
+    <a href="{% url 'brand_products' brand.id %}">
+      <img src="{{ image.image.url }}" alt="{{ brand.name }}" style="width: 17rem;">
+    </a>
+  {% endfor %}
+{% endfor %}
+</div>
+<br>
+  <div class=" row all">
+    {% for product in all_products %}
+    <div class="card" style="width: 17rem;">
+      {% for image in product.images.all %}
+      <img class="card-img-top card-img-full" src="{{ image.image.url }}"  alt="Card image cap">
+      {% endfor %}
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <p class="card-text">{{ product.price }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 </body>
+
+
+<script>
+  $(document).ready(function () {
+    $('.news').slick({
+      centerMode: true,
+      centerPadding: '60px',
+      slidesToShow: 6,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+  });
+</script>
+
+<script>
+  $('.brand-list').slick({
+  dots: false,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 4,
+  slidesToScroll: 2,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      }
+    }
+  ]
+});
+</script>
 
 {% endblock %}

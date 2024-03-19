@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block header_title %} {{subtitle}} {% endblock %}
+{% block content %}
+
+<body>
+    <h1>Create a new Brand</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ brand_form.as_p }}
+        {{ image_form.as_p }}
+        <button type="submit">Crear Producto</button>
+    </form>
+</body>
+
+{% endblock %}
