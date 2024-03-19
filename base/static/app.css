@@ -1,10 +1,47 @@
 /*color barra de navegacion */
 .navbar-custom {
-    background-color: #000000 !important; 
+    background-color: #000000 !important;
 }
+
 /* Cambia la fuente de las letras de la navbar*/
 .navbar-custom .navbar-brand {
-    font-family: 'Bebas Neue', sans-serif  !important; 
+    font-family: 'Bebas Neue', sans-serif !important;
     font-weight: 400;
     font-style: normal;
 }
+
+div.card img.card-img-top {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+
+button.slick-arrow {
+    width: 30px ;
+    height: 30px ;
+    font-size: 1px;
+    color: transparent;
+    position: absolute;
+    top: 100px;
+    border: 0px;
+}
+button.slick-prev{
+    left: -40px;
+    background: url("./images/proximo.png");
+    background-size: 100%;
+    transform: rotate(-180deg);
+}
+button.slick-next{
+    right: -40px;
+    background: url("./images/proximo.png");
+    background-size: 100%;
+}
+
+.brand-list img {
+    width: 100%; 
+    height: 350px;
+    object-fit: cover; 
+  }
+

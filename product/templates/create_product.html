@@ -5,10 +5,11 @@
 
 <body>
     <h1>Create a new Product</h1>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Create Product</button>
+        {{ product_form.as_p }}
+        {{ image_form.as_p }}
+        <button type="submit">Crear Producto</button>
     </form>
 </body>
 
