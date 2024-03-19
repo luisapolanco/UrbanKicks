@@ -17,12 +17,85 @@
             <p><strong>Brand:</strong> {{ product.brand }}</p>
             <p><strong>Category:</strong> {{ product.category }}</p>
             <p><strong>Created at:</strong> {{ product.created_at }}</p>
-            <br>
+            <div class="row justify">
+                <div class="col-md-2"><strong>Quantity</strong></div>
+                <div class="col-md-2">
+                    <select class="form-select" id="select{{ product.product_id }}">
+                            {% for key, value in quantities.items %}
+                                {% if key == product.product_id|slugify %}
+                                <option selected> {{ value }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
+            <button type="button" data-index="{{ product.product_id }}" class="btn btn-secondary update-cart">Update</button>
+            <br><br>
+            <button type="button" data-index="{{ product.product_id }}" class="btn btn-danger delete-product">Remove</button>
+            <br><br>
         {% endfor %}
+        <h3>Total: ${{ totals}}</h3>
         {% else %}
         There's nothing in your cart...
         {% endif %}
     </div>
+
+    <script>
+        $(document).on('click', '.update-cart', function(e){
+                e.preventDefault();
+                var productid = $(this).data('index');
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url 'cart_update' %}',
+                    data: {
+                        product_id: $(this).data('index'),
+                        product_quantity: $('#select' + productid + ' option:selected').text(),
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        action: 'post'
+                    },
+    
+                    success: function(json){
+                        //document.getElementById('cart_quantity').textContent = json.quantity
+                        location.reload();
+                    },
+    
+                    error: function(xhr, errmsg, err){
+    
+                    }
+                });
+    
+            })
+
+        $(document).on('click', '.delete-product', function(e){
+                e.preventDefault();
+                
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url 'cart_delete' %}',
+                    data: {
+                        product_id: $(this).data('index'),
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        action: 'post'
+                    },
+    
+                    success: function(json){
+                        //document.getElementById('cart_quantity').textContent = json.quantity
+                        location.reload();
+                    },
+    
+                    error: function(xhr, errmsg, err){
+    
+                    }
+                });
+    
+            })
+    </script>
 </body>
 
 {% endblock %}
