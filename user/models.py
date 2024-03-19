@@ -10,6 +10,7 @@ class User(AbstractUser):
     phone_number = models.CharField(max_length=10)
     is_customer = models.BooleanField(default=False) 
     is_adm = models.BooleanField(default=False)
+    old_cart = models.CharField(max_length=200, blank=True, null=True)
 
     @property
     def is_Customer(self):

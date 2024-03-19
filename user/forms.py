@@ -1,4 +1,5 @@
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm 
+from django.contrib.auth.forms import UserCreationForm
+from django import forms
 from django.db import transaction
 from django import forms
 from .models import User, Customer, Adm
@@ -57,6 +58,13 @@ class AdmSignUpFrom(UserCreationForm):
         adm = Adm.objects.create(user=user, adm_id = self.cleaned_data.get('adm_id'))
         return user
 
-class LoginForm(AuthenticationForm):
-    username = forms.CharField(widget=forms.TextInput())
-    password = forms.CharField(widget=forms.PasswordInput())
+class LoginForm(forms.Form):
+    username = forms.CharField(label="username")
+    password = forms.CharField(widget=forms.PasswordInput(), label="password")
+
+    def clean(self):
+        cleaned_data = super().clean()
+        username = cleaned_data.get('username')
+        password = cleaned_data.get('password')
+        
+        return cleaned_data

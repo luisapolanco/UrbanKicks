@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect
 from .forms import CustomerSignUpFrom, AdmSignUpFrom, LoginForm
 from django.views import View
-from django.contrib.auth import login, authenticate
-from django.contrib.auth import views as auth_views
+from django.contrib.auth import authenticate, login
+#from django.contrib.auth import views as auth_views
 from django.urls import reverse
+from .models import User
+import json
+from cart.cart import Cart
 # Create your views here.
 
 class SignUpView(View):
@@ -32,17 +35,35 @@ class AdmSignUpView(View):
             return redirect('home')
         return render(request, 'registration/adm_sign_up.html', context={'form':form})
 
-class LoginView(auth_views.LoginView):
-    form_class = LoginForm
+class LoginView(View):#auth_views.LoginView)
     template_name = "registration/login.html"
 
-    def get_context_data(self, **kwargs):
-        return super().get_context_data(**kwargs)
+    def get(self, request, *args, **kwargs):
+        form = LoginForm
+        return render(request, self.template_name, {'form':form})
+    
+    def post(self, request, *args, **kwargs):
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
 
-    def get_success_url(self):
-        user = self.request.user
-        if user.is_authenticated:
-            return reverse('home')
+                current_user = User.objects.get(id=request.user.id)
+                
+                saved_cart = current_user.old_cart
 
-        else: 
-            return reverse('login')
+                if saved_cart:
+                    converted_cart = json.loads(saved_cart)
+
+                    cart = Cart(request)
+
+                    for key,value in converted_cart.items():
+                        cart.db_add(product=key, quantity=value)
+
+                return redirect('home')
+            else:
+                form.add_error(None, 'Invalid username or password')
+        return render(request, self.template_name, {'form':form})
