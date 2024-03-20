@@ -41,6 +41,7 @@
             <br><br>
         {% endfor %}
         <h3>Total: ${{ totals}}</h3>
+        <button type="submit"><a href="{% url 'order_create' %}">Pagar</a></button>
         {% else %}
         There's nothing in your cart...
         {% endif %}
