@@ -64,11 +64,13 @@ class ProductUpdateView(View):
         return render(request, 'edit_product.html', {'form': form, 'product': product})
     
 class CreateBrandView(View):
+    @method_decorator(adm_access_only("No estas autorizado para acceder a la pagina de admin, logeate como admin"), name='get')
     def get(self, request, *args, **kwargs):
         brand_form = BrandForm()
         image_form = BrandImageForm()
         return render(request, 'create_brand.html', {'brand_form': brand_form, 'image_form': image_form})
 
+    @method_decorator(adm_access_only("No estas autorizado para acceder a la pagina de admin, logeate como admin"), name='post')
     def post(self, request, *args, **kwargs):
         brand_form = BrandForm(request.POST)
         image_form = BrandImageForm(request.POST, request.FILES)
