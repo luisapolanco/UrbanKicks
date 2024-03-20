@@ -11,6 +11,7 @@
     <p><strong>Category:</strong> {{ product.category }}</p>
     <p><strong>Created at:</strong> {{ product.created_at }}</p>
     <br>
+    {% if user.is_customer %}
     <div class="row justify">
         <div class="col-md-2"><strong>Quantity</strong></div>
         <div class="col-md-2">
@@ -25,7 +26,7 @@
     </div>
     <br>
     <button type="button" value="{{ product.product_id }}" class="btn btn-secondary" id="add-cart">Add to cart</button>
-    
+    {% endif %}
     <script>
         $(document).on('click', '#add-cart', function(e){
             e.preventDefault();

@@ -21,6 +21,10 @@ class CustomerSignUpView(View):
         form = CustomerSignUpFrom(request.POST)
         if form.is_valid():
             form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request,user)
             return redirect('home')
         return render(request, 'registration/customer_sign_up.html', context={'form':form})
     
@@ -32,6 +36,10 @@ class AdmSignUpView(View):
         form = AdmSignUpFrom(request.POST)
         if form.is_valid():
             form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request,user)
             return redirect('home')
         return render(request, 'registration/adm_sign_up.html', context={'form':form})
 

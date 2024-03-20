@@ -29,9 +29,11 @@
             <a class="navbar-brand" href="{% url 'login' %}">Login</a>
             <a class="navbar-brand" href="{% url 'sign_up' %}">Sign up</a>
             {% endif %}
+            {% if user.is_authenticated and user.is_customer %}
             <form class="d-flex">
                 <a href="{% url 'cart_summary' %}" class="btn btn-outline-light"><i class="bi-cart-fill me-1"></i>Cart <span class="badge bg-dark text-white ms-1 rounded-pill" id="cart_quantity">{{ cart|length }}</span></a>
             </form>
+            {% endif %}
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <!-- Rest of nav items, if any -->
             </div>
