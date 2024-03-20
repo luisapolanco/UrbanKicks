@@ -1,3 +1,4 @@
+#Creado por Samuel Oviedo
 from msilib.schema import ListView
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View

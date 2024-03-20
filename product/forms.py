@@ -1,3 +1,4 @@
+#Creado por Samuel Oviedo
 from django import forms
 from .models import Brand, BrandImage, Product, ProductImage
 

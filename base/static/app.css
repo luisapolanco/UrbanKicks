@@ -1,6 +1,6 @@
 /*color barra de navegacion */
 .navbar-custom {
-    background-color: #000000 !important;
+    background-color: black !important;
 }
 
 /* Cambia la fuente de las letras de la navbar*/
@@ -43,5 +43,15 @@ button.slick-next{
     width: 100%; 
     height: 350px;
     object-fit: cover; 
-  }
+}
+
+button.lupa{
+    filter: invert(100%);
+    width: 47px ;
+    height: 40px ;
+    background: url("./images/lupa.png");
+    background-size: 100%;
+    border: none;
+}
+
 
