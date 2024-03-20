@@ -1,3 +1,4 @@
+#Creado por Samuel Oviedo
 from django.views.generic import View
 from product.models import Brand, Product
 from django.shortcuts import render
