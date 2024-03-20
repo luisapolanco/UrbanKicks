@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
+from reportlab.lib.pagesizes import letter
+from reportlab.lib import colors
 from .models import Order
 from user.models import Customer, User
 from django.views import View
@@ -14,11 +16,13 @@ class OrderCreate(View):
     def get(self,request, *args, **kwargs):
         user = request.user
         customer = get_object_or_404(Customer, user = user) 
-
-        Order.objects.create()
-        return redirect('order_detail')
+        status = "active"
+        products = user.old_cart
+        
+        order=Order.objects.create(customer = customer, status = status, products = products)
+        return self.generate_pdf(order.order_id)
     
-    def generate_pdf(request, order_id):
+    def generate_pdf(self,order_id):
         # Obtén la order desde la base de datos
         order = get_object_or_404(Order, order_id=order_id)
 
@@ -35,6 +39,7 @@ class OrderCreate(View):
         contenido.append(f'Fecha de Emisión: {order.date_created}')
         contenido.append(f'Cliente: {order.customer.user.username}')
         contenido.append(f'Detalles: {order.status}')
+        #contenido.append(f'Productos: {order.products}')
         
 
         # Creamos una tabla para la order
@@ -55,5 +60,5 @@ class OrderCreate(View):
         contenido.append(tabla_contenido)
 
         # Construimos el PDF
-        doc.build(contenido)
+        doc.build([tabla_contenido])
         return response

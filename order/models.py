@@ -7,7 +7,7 @@ class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=50)
-    products = models.CharField(max_length=200)
+    products = models.CharField(max_length=200,default="")
 
     def __str__(self):
         return self.order_id
