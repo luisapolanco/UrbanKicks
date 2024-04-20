@@ -7,6 +7,7 @@
   <div class=" row news">
     {% for product in newest_products %}
     <div class="card" style="width: 10rem">
+      <a href="{% url 'product_detail' product.product_id %}" style="text-decoration: none;">
       {% for image in product.images.all %}
       <img class="card-img-top" src="{{ image.image.url }}" alt="Card image cap">
       {% endfor %}
@@ -14,6 +15,7 @@
         <p class="card-text">{{ product.name }}</p>
         <p class="card-text" style="color: grey;">{{ product.brand }}</p>
       </div>
+    </a>
     </div>
     {% endfor %}
   </div>
@@ -31,6 +33,7 @@
   <div class=" row all">
     {% for product in all_products %}
     <div class="card" style="width: 17rem;">
+      <a href="{% url 'product_detail' product.product_id %}" style="text-decoration: none;">
       {% for image in product.images.all %}
       <img class="card-img-top card-img-full" src="{{ image.image.url }}"  alt="Card image cap">
       {% endfor %}
@@ -39,6 +42,7 @@
         <p class="card-text">{{ product.description }}</p>
         <p class="card-text">{{ product.price }}</p>
       </div>
+    </a>
     </div>
     {% endfor %}
   </div>

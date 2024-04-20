@@ -34,6 +34,10 @@
                 <a href="{% url 'cart_summary' %}" class="btn btn-outline-light"><i class="bi-cart-fill me-1"></i>Cart <span class="badge bg-dark text-white ms-1 rounded-pill" id="cart_quantity">{{ cart|length }}</span></a>
             </form>
             {% endif %}
+            {% if user.is_authenticated and user.is_adm %}
+            <a class="navbar-brand" href="{% url 'create_product' %}">Create Product</a>
+            <a class="navbar-brand" href="{% url 'create_brand' %}">Create Brand</a>
+            {% endif %}
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <!-- Rest of nav items, if any -->
             </div>

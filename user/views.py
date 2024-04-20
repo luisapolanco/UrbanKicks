@@ -3,7 +3,6 @@ from .forms import CustomerSignUpFrom, AdmSignUpFrom, LoginForm
 from django.views import View
 from django.contrib.auth import authenticate, login
 #from django.contrib.auth import views as auth_views
-from django.urls import reverse
 from .models import User
 import json
 from cart.cart import Cart
