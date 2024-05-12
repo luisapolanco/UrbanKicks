@@ -4,15 +4,12 @@ from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
 from reportlab.lib.pagesizes import letter
 from reportlab.lib import colors
 from .models import Order
-from user.models import Customer, User
+from user.models import Customer
 from django.views import View
-from django.views.generic.detail import DetailView
-from django.views.generic.edit import UpdateView
-from django.views.generic.edit import DeleteView
 from django.shortcuts import redirect, get_object_or_404
 # Create your views here.
 
-class OrderCreate(View):
+class OrderCreateView(View):
     def get(self,request, *args, **kwargs):
         user = request.user
         customer = get_object_or_404(Customer, user = user) 
