@@ -35,7 +35,7 @@
             </form>
             {% endif %}
             {% if user.is_authenticated and user.is_adm %}
-            <a class="navbar-brand" href="{% url 'create_product' %}">Create Product</a>
+            <a class="navbar-brand" href="{% url 'create_product' %}">{{ crear_product }}</a>
             <a class="navbar-brand" href="{% url 'create_brand' %}">Create Brand</a>
             {% endif %}
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">

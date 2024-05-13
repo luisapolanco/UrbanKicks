@@ -2,6 +2,8 @@
 from django.views.generic import View
 from product.models import Brand, Product
 from django.shortcuts import render
+
+from resources.lang.texts import TEXTOS
 # Create your views here.
 
 
@@ -16,6 +18,7 @@ class HomeView(View):
             'newest_products': newest_products,
             'all_products': all_products,
             'brands': brands,
+            'crear_product' : TEXTOS['crear_producto']
         }
         
         return render(request, 'home.html', context)
