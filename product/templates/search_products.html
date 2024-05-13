@@ -5,11 +5,22 @@
 
 <body>
     <h1>Search Results</h1>
-    <ul>
+    <div class=" row all">
         {% for product in results %}
-            <li>{{ product.name }}</li>
+        <div class="card" style="width: 17rem;">
+            <a href="{% url 'product_detail' product.product_id %}" style="text-decoration: none;">
+                {% for image in product.images.all %}
+                <img class="card-img-top card-img-full" src="{{ image.image.url }}" alt="Card image cap">
+                {% endfor %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.description }}</p>
+                    <p class="card-text">{{ product.price }}</p>
+                </div>
+            </a>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 </body>
 
 {% endblock %}

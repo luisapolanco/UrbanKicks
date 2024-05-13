@@ -6,13 +6,15 @@ from .models import Brand, BrandImage, Product, ProductImage
 from .forms import BrandForm, BrandImageForm, ProductForm, ProductImageForm
 from user.decorators import adm_access_only
 from django.utils.decorators import method_decorator
+from django.db.models import Q
+
 # Create your views here.
 
 class SearchProductView(View):
 
     def get(self, request):
         query = request.GET.get('search_query')
-        results = Product.objects.filter(name__icontains=query)
+        results = Product.objects.filter(Q(name__icontains=query)| Q(brand__name__icontains=query))
         return render(request, 'search_products.html', {'results': results})
 
 class CreateProductView(View):
