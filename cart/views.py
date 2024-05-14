@@ -17,7 +17,7 @@ class CartSummaryView(View):
             'logout' : TEXTS['logout'],
             'login' : TEXTS['login'],
             'signup' : TEXTS['signup'],
-            'cart' : TEXTS['cart'],
+            'cart_text' : TEXTS['cart'],
             'create_product' : TEXTS['create_product'],
             'create_brand' : TEXTS['create_brand'],
             'shopping_cart' : TEXTS['shopping_cart'],

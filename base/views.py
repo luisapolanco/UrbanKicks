@@ -17,7 +17,7 @@ class HomeView(View):
             'logout' : TEXTS['logout'],
             'login' : TEXTS['login'],
             'signup' : TEXTS['signup'],
-            'cart' : TEXTS['cart'],
+            'cart_text' : TEXTS['cart'],
             'create_product' : TEXTS['create_product'],
             'create_brand' : TEXTS['create_brand'],
             'newest_products': newest_products,

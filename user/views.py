@@ -52,7 +52,19 @@ class CustomerSignUpView(View):
             user = authenticate(username=username, password=password)
             login(request,user)
             return redirect('home')
-        return render(request, 'registration/customer_sign_up.html', context={'form':form})
+        context={
+            'urban_kicks' : TEXTS['urban_kicks'],
+            'logout' : TEXTS['logout'],
+            'login' : TEXTS['login'],
+            'signup' : TEXTS['signup'],
+            'cart' : TEXTS['cart'],
+            'create_product' : TEXTS['create_product'],
+            'create_brand' : TEXTS['create_brand'],
+            'register_customer_account': TEXTS['register_customer_account'],
+            'register': TEXTS['register'],
+            'form': form
+        }
+        return render(request, 'registration/customer_sign_up.html', context)
     
 class AdmSignUpView(View):
     def get(self, request):
@@ -79,7 +91,19 @@ class AdmSignUpView(View):
             user = authenticate(username=username, password=password)
             login(request,user)
             return redirect('home')
-        return render(request, 'registration/adm_sign_up.html', context={'form':form})
+        context= {
+            'urban_kicks' : TEXTS['urban_kicks'],
+            'logout' : TEXTS['logout'],
+            'login' : TEXTS['login'],
+            'signup' : TEXTS['signup'],
+            'cart' : TEXTS['cart'],
+            'create_product' : TEXTS['create_product'],
+            'create_brand' : TEXTS['create_brand'],
+            'register_admin_account': TEXTS['register_admin_account'],
+            'register': TEXTS['register'],
+            'form':form,
+        }
+        return render(request, 'registration/adm_sign_up.html', context)
 
 class LoginView(View):#auth_views.LoginView)
     template_name = "registration/login.html"
@@ -94,7 +118,10 @@ class LoginView(View):#auth_views.LoginView)
             'cart' : TEXTS['cart'],
             'create_product' : TEXTS['create_product'],
             'create_brand' : TEXTS['create_brand'],
-            'enter' : TEXTS['enter'],
+            'username' : TEXTS['username'],
+            'password' : TEXTS['password'],
+            'log_in' : TEXTS['log_in'],
+            'register_message' : TEXTS['register_message'],
             'form':form
         }
         return render(request, self.template_name, context )
@@ -123,4 +150,18 @@ class LoginView(View):#auth_views.LoginView)
                 return redirect('home')
             else:
                 form.add_error(None, 'Invalid username or password')
-        return render(request, self.template_name, {'form':form})
+        context = {
+            'urban_kicks' : TEXTS['urban_kicks'],
+            'logout' : TEXTS['logout'],
+            'login' : TEXTS['login'],
+            'signup' : TEXTS['signup'],
+            'cart' : TEXTS['cart'],
+            'create_product' : TEXTS['create_product'],
+            'create_brand' : TEXTS['create_brand'],
+            'username' : TEXTS['username'],
+            'password' : TEXTS['password'],
+            'log_in' : TEXTS['log_in'],
+            'register_message' : TEXTS['register_message'],
+            'form':form
+        }
+        return render(request, self.template_name, context)

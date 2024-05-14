@@ -31,7 +31,7 @@
             {% endif %}
             {% if user.is_authenticated and user.is_customer %}
             <form class="d-flex">
-                <a href="{% url 'cart_summary' %}" class="btn btn-outline-light"><i class="bi-cart-fill me-1"></i>{{ cart }} <span class="badge bg-dark text-white ms-1 rounded-pill" id="cart_quantity">{{ cart|length }}</span></a>
+                <a href="{% url 'cart_summary' %}" class="btn btn-outline-light"><i class="bi-cart-fill me-1"></i>{{ cart_text }} <span class="badge bg-dark text-white ms-1 rounded-pill" id="cart_quantity">{{ cart|length }}</span></a>
             </form>
             {% endif %}
             {% if user.is_authenticated and user.is_adm %}
@@ -42,7 +42,7 @@
                 <!-- Rest of nav items, if any -->
             </div>
             <form class="d-flex ms-auto my-2 my-lg-0" action="{% url 'search_product' %}" method="GET">
-                <input class="form-control me-2" type="search" name="search_query" placeholder="Search Product" aria-label="Search">
+                <input class="form-control me-2" type="search" name="search_query" placeholder="Buscar productos" aria-label="Search">
                 <button class="lupa" type="submit">
                     <i class="bi bi-search"></i>
                 </button>

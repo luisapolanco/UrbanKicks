@@ -3,14 +3,41 @@
 {% block header_title %} {{subtitle}} {% endblock %}
 {% block content %}
 
-<body>
-    <h1>{{create_brand}}</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ brand_form.as_p }}
-        {{ image_form.as_p }}
-        <button type="submit">{{create_brand}}</button>
-    </form>
-</body>
-
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="text-center mb-4">{{create_brand}}</h1>
+                    <form method="post" enctype="multipart/form-data" class="form">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="{{ brand_form.name.id_for_label }}" class="form-label">{{brand_name}}</label>
+                            <input type="text" class="form-control" id="{{ brand_form.name.id_for_label }}" name="{{ brand_form.name.name }}" placeholder="Enter brand name" value="{{ brand_form.name.value|default_if_none:'' }}" required>
+                            {% if brand_form.name.errors %}
+                                {% for error in brand_form.name.errors %}
+                                    <div class="alert alert-danger">{{ error }}</div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ image_form.image.id_for_label }}" class="form-label">{{brand_image}}</label>
+                            <input type="file" class="form-control" id="{{ image_form.image.id_for_label }}" name="{{ image_form.image.name }}" required>
+                            {% if image_form.image.errors %}
+                                {% for error in image_form.image.errors %}
+                                    <div class="alert alert-danger">{{ error }}</div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-dark">{{create_brand}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
+
+

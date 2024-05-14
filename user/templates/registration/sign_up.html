@@ -6,8 +6,11 @@
 <body>
     <h1>{{user_register}}</h1>
     <p>{{choose_user_type_message}}</p>
-    <a href="{% url 'customer_sign_up' %}">{{client}}</a>
-    <a href="{% url 'adm_sign_up' %}">{{admin}}</a>
+    <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+        <a class="btn btn-dark" href="{% url 'customer_sign_up' %}">{{client}}</a>
+        <a class="btn btn-dark" href="{% url 'adm_sign_up' %}">{{admin}}</a>
+    </div>
 </body>
+
 
 {% endblock %}
