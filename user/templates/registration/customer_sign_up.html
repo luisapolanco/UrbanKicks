@@ -1,15 +1,57 @@
 {% extends 'base.html' %}
-{% block title %} {{title}} {% endblock %}
-{% block header_title %} {{subtitle}} {% endblock %}
+{% block title %}{{ title }}{% endblock %}
+{% block header_title %}{{ subtitle }}{% endblock %}
 {% block content %}
 
 <body>
-    <h1>Register Customer Account</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Register</button>
-    </form>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6"> <!-- Ajusta el tamaño del formulario aquí -->
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="text-center mb-4">Register Customer Account</h1>
+                        <form method="post" action="{% url 'adm_sign_up' %}" class="form">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <input type="text" name="{{ form.username.name }}" id="{{ form.username.id_for_label }}" class="form-control" placeholder="Username" value="{{ form.username.value|default_if_none:'' }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" name="{{ form.email.name }}" id="{{ form.email.id_for_label }}" class="form-control" placeholder="Email" value="{{ form.email.value|default_if_none:'' }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" name="{{ form.name.name }}" id="{{ form.name.id_for_label }}" class="form-control" placeholder="Full Name" value="{{ form.name.value|default_if_none:'' }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" name="{{ form.city.name }}" id="{{ form.city.id_for_label }}" class="form-control" placeholder="City" value="{{ form.city.value|default_if_none:'' }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" name="{{ form.address.name }}" id="{{ form.address.id_for_label }}" class="form-control" placeholder="Address" value="{{ form.address.value|default_if_none:'' }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" name="{{ form.phone_number.name }}" id="{{ form.phone_number.id_for_label }}" class="form-control" placeholder="Phone Number" value="{{ form.phone_number.value|default_if_none:'' }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" name="{{ form.payment_info.name }}" id="{{ form.payment_info.id_for_label }}" class="form-control" placeholder="Payment Information" value="{{ form.payment_info.value|default_if_none:'' }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="number" name="{{ form.customer_id.name }}" id="{{ form.customer_id.id_for_label }}" class="form-control" placeholder="Customer ID" value="{{ form.customer_id.value|default_if_none:'' }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" name="{{ form.password1.name }}" id="{{ form.password1.id_for_label }}" class="form-control" placeholder="Password" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" name="{{ form.password2.name }}" id="{{ form.password2.id_for_label }}" class="form-control" placeholder="Confirm Password" required>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-dark">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 {% endblock %}
+

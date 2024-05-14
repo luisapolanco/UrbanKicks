@@ -1,16 +1,51 @@
 {% extends 'base.html' %}
-{% block title %} {{title}} {% endblock %}
-{% block header_title %} {{subtitle}} {% endblock %}
+
+{% block title %}Create New Product{% endblock %}
+
 {% block content %}
-
-<body>
-    <h1>Create a new Product</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ product_form.as_p }}
-        {{ image_form.as_p }}
-        <button type="submit">Crear Producto</button>
-    </form>
-</body>
-
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="text-center mb-4">Create a New Product</h1>
+                    <form method="post" enctype="multipart/form-data" class="form">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="{{ product_form.name.id_for_label }}" class="form-label">Product Name</label>
+                            <input type="text" class="form-control" id="{{ product_form.name.id_for_label }}" name="{{ product_form.name.name }}" placeholder="Enter product name" value="{{ product_form.name.value|default_if_none:'' }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ product_form.price.id_for_label }}" class="form-label">Price</label>
+                            <input type="text" class="form-control" id="{{ product_form.price.id_for_label }}" name="{{ product_form.price.name }}" placeholder="Enter price" value="{{ product_form.price.value|default_if_none:'' }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ product_form.description.id_for_label }}" class="form-label">Description</label>
+                            <textarea class="form-control" id="{{ product_form.description.id_for_label }}" name="{{ product_form.description.name }}" placeholder="Enter description" required>{{ product_form.description.value|default_if_none:'' }}</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ product_form.brand.id_for_label }}" class="form-label">Brand</label>
+                            <select class="form-control" id="{{ product_form.brand.id_for_label }}" name="{{ product_form.brand.name }}" required>
+                                {% for brand in product_form.brand.field.queryset %}
+                                    <option value="{{ brand.id }}" {% if product_form.brand.value == brand.id %} selected {% endif %}>{{ brand.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ product_form.category.id_for_label }}" class="form-label">Category</label>
+                            <input type="text" class="form-control" id="{{ product_form.category.id_for_label }}" name="{{ product_form.category.name }}" placeholder="Enter category" value="{{ product_form.category.value|default_if_none:'' }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ image_form.image.id_for_label }}" class="form-label">Product Image</label>
+                            <input type="file" class="form-control" id="{{ image_form.image.id_for_label }}" name="{{ image_form.image.name }}" required>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-dark">Crear Producto</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

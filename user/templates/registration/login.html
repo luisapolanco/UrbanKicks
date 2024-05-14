@@ -1,15 +1,39 @@
 {% extends 'base.html' %}
-{% block title %} {{title}} {% endblock %}
-{% block header_title %} {{subtitle}} {% endblock %}
+{% load widget_tweaks %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block header_title %}{{ subtitle }}{% endblock %}
 {% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card p-4 shadow-lg">
 
-<body>
-    <h1>Login</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Ingresar</button>
-    </form>
-</body>
-
+                <div class="card-body">
+                    <!-- Agregar GIF aquí -->
+                    <div class="text-center">
+                        <img src="{% static 'images\logingift.gif' %}" alt="Cargando..." class="img-fluid shadow-lg" style="width: 100px; height: auto;">
+                    </div>
+                
+                    <h2 class="text-center mb-4">Log In</h2>
+                    <form method="post" class="form">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="id_username" class="form-label">Username</label>
+                            {{ form.username|add_class:"form-control" }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_password" class="form-label">Password</label>
+                            {{ form.password|add_class:"form-control" }}
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+                    </form>
+                    <div class="text-center mt-2">
+                        <a href="{% url 'sign_up' %}" class="text-decoration-none">¿No tiene una cuenta? Abrir cuenta</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

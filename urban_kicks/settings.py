@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'cart',
     'rest_framework',
     'api.apps.ApiConfig',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
