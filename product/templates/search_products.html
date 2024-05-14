@@ -4,7 +4,7 @@
 {% block content %}
 
 <body>
-    <h1>Search Results</h1>
+    <h1>{{search_results}}</h1>
     <ul>
         {% for product in results %}
             <li>{{ product.name }}</li>

@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from resources.lang.texts import TEXTS
 from .cart import Cart
 from product.models import Product
 from django.http import JsonResponse
@@ -11,7 +12,32 @@ class CartSummaryView(View):
         cart_products = cart.get_prods()
         quantities = cart.get_quantities()
         totals = cart.cart_total()
-        return render(request, 'cart_summary.html', {'cart_products':cart_products, 'quantities':quantities, 'totals':totals})
+        context = {
+            'urban_kicks' : TEXTS['urban_kicks'],
+            'logout' : TEXTS['logout'],
+            'login' : TEXTS['login'],
+            'signup' : TEXTS['signup'],
+            'cart' : TEXTS['cart'],
+            'create_product' : TEXTS['create_product'],
+            'create_brand' : TEXTS['create_brand'],
+            'shopping_cart' : TEXTS['shopping_cart'],
+            'shopping_cart_message' : TEXTS['shopping_cart_message'],
+            'price' : TEXTS['price'],
+            'description' : TEXTS['description'],
+            'brand' : TEXTS['brand'],
+            'category' : TEXTS['category'],
+            'created_at' : TEXTS['created_at'],
+            'quantity' : TEXTS['quantity'],
+            'update' : TEXTS['update'],
+            'delete' : TEXTS['delete'],
+            'total' : TEXTS['total'],
+            'pay' : TEXTS['pay'],
+            'empty_cart_message' : TEXTS['empty_cart_message'],
+            'cart_products':cart_products,
+            'quantities':quantities,
+            'totals':totals,            
+        }
+        return render(request, 'cart_summary.html', context)
     
 
 class CartAddView(View):

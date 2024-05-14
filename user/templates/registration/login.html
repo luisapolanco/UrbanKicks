@@ -4,11 +4,11 @@
 {% block content %}
 
 <body>
-    <h1>Login</h1>
+    <h1>{{login}}</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Ingresar</button>
+        <button type="submit">{{enter}}</button>
     </form>
 </body>
 

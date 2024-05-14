@@ -4,12 +4,12 @@
 {% block content %}
 
 <body>
-    <h1>Create a new Product</h1>
+    <h1>{{create_new_product}}</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ product_form.as_p }}
         {{ image_form.as_p }}
-        <button type="submit">Crear Producto</button>
+        <button type="submit">{{create_product}}</button>
     </form>
 </body>
 

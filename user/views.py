@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from resources.lang.texts import TEXTS
 from .forms import CustomerSignUpFrom, AdmSignUpFrom, LoginForm
 from django.views import View
 from django.contrib.auth import authenticate, login
@@ -10,12 +11,38 @@ from cart.cart import Cart
 
 class SignUpView(View):
     def get(self, request):
-        return render(request, 'registration/sign_up.html')
+        context = {
+            'urban_kicks' : TEXTS['urban_kicks'],
+            'logout' : TEXTS['logout'],
+            'login' : TEXTS['login'],
+            'signup' : TEXTS['signup'],
+            'cart' : TEXTS['cart'],
+            'create_product' : TEXTS['create_product'],
+            'create_brand' : TEXTS['create_brand'],
+            'user_register' : TEXTS['user_register'],
+            'choose_user_type_message': TEXTS['choose_user_type_message'],
+            'client': TEXTS['client'],
+            'admin': TEXTS['admin'],
+        }
+        return render(request, 'registration/sign_up.html', context)
     
 class CustomerSignUpView(View):
     def get(self, request):
         form = CustomerSignUpFrom
-        return render(request, 'registration/customer_sign_up.html', context={'form':form})
+        context={
+            'urban_kicks' : TEXTS['urban_kicks'],
+            'logout' : TEXTS['logout'],
+            'login' : TEXTS['login'],
+            'signup' : TEXTS['signup'],
+            'cart' : TEXTS['cart'],
+            'create_product' : TEXTS['create_product'],
+            'create_brand' : TEXTS['create_brand'],
+            'register_customer_account': TEXTS['register_customer_account'],
+            'register': TEXTS['register'],
+            'form': form
+        }
+        return render(request, 'registration/customer_sign_up.html', context)
+    
     def post(self, request):
         form = CustomerSignUpFrom(request.POST)
         if form.is_valid():
@@ -30,7 +57,19 @@ class CustomerSignUpView(View):
 class AdmSignUpView(View):
     def get(self, request):
         form = AdmSignUpFrom
-        return render(request, 'registration/adm_sign_up.html', context={'form':form})
+        context= {
+            'urban_kicks' : TEXTS['urban_kicks'],
+            'logout' : TEXTS['logout'],
+            'login' : TEXTS['login'],
+            'signup' : TEXTS['signup'],
+            'cart' : TEXTS['cart'],
+            'create_product' : TEXTS['create_product'],
+            'create_brand' : TEXTS['create_brand'],
+            'register_admin_account': TEXTS['register_admin_account'],
+            'register': TEXTS['register'],
+            'form':form,
+        }
+        return render(request, 'registration/adm_sign_up.html', context )
     def post(self, request):
         form = AdmSignUpFrom(request.POST)
         if form.is_valid():
@@ -47,7 +86,18 @@ class LoginView(View):#auth_views.LoginView)
 
     def get(self, request, *args, **kwargs):
         form = LoginForm
-        return render(request, self.template_name, {'form':form})
+        context = {
+            'urban_kicks' : TEXTS['urban_kicks'],
+            'logout' : TEXTS['logout'],
+            'login' : TEXTS['login'],
+            'signup' : TEXTS['signup'],
+            'cart' : TEXTS['cart'],
+            'create_product' : TEXTS['create_product'],
+            'create_brand' : TEXTS['create_brand'],
+            'enter' : TEXTS['enter'],
+            'form':form
+        }
+        return render(request, self.template_name, context )
     
     def post(self, request, *args, **kwargs):
         form = LoginForm(request.POST)

@@ -11,32 +11,32 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link href="{% static 'app.css' %}" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <title>{% block title %}UrbanKicks{% endblock %}</title>
+    <title>{% block title %}{{ urban_kicks }}{% endblock %}</title>
 </head>
  
 <body>
     <!-- header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4 navbar-custom">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">UrbanKicks</a>
+            <a class="navbar-brand" href="{% url 'home' %}">{{ urban_kicks }}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             {% if user.is_authenticated %}
-            <a class="navbar-brand" href="{% url 'logout' %}">Logout</a>
+            <a class="navbar-brand" href="{% url 'logout' %}">{{ logout }}</a>
             {% else %}
-            <a class="navbar-brand" href="{% url 'login' %}">Login</a>
-            <a class="navbar-brand" href="{% url 'sign_up' %}">Sign up</a>
+            <a class="navbar-brand" href="{% url 'login' %}">{{ login }}</a>
+            <a class="navbar-brand" href="{% url 'sign_up' %}">{{ signup }}</a>
             {% endif %}
             {% if user.is_authenticated and user.is_customer %}
             <form class="d-flex">
-                <a href="{% url 'cart_summary' %}" class="btn btn-outline-light"><i class="bi-cart-fill me-1"></i>Cart <span class="badge bg-dark text-white ms-1 rounded-pill" id="cart_quantity">{{ cart|length }}</span></a>
+                <a href="{% url 'cart_summary' %}" class="btn btn-outline-light"><i class="bi-cart-fill me-1"></i>{{ cart }} <span class="badge bg-dark text-white ms-1 rounded-pill" id="cart_quantity">{{ cart|length }}</span></a>
             </form>
             {% endif %}
             {% if user.is_authenticated and user.is_adm %}
-            <a class="navbar-brand" href="{% url 'create_product' %}">{{ crear_product }}</a>
-            <a class="navbar-brand" href="{% url 'create_brand' %}">Create Brand</a>
+            <a class="navbar-brand" href="{% url 'create_product' %}">{{ create_product }}</a>
+            <a class="navbar-brand" href="{% url 'create_brand' %}">{{create_brand}}</a>
             {% endif %}
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <!-- Rest of nav items, if any -->

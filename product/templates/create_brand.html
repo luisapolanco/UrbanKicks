@@ -4,12 +4,12 @@
 {% block content %}
 
 <body>
-    <h1>Create a new Brand</h1>
+    <h1>{{create_brand}}</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ brand_form.as_p }}
         {{ image_form.as_p }}
-        <button type="submit">Crear Marca</button>
+        <button type="submit">{{create_brand}}</button>
     </form>
 </body>
 

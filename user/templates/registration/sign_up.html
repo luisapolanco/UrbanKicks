@@ -4,10 +4,10 @@
 {% block content %}
 
 <body>
-    <h1>Registro de usuarios</h1>
-    <p>Seleccione el tipo de cuenta que quiere crear</p>
-    <a href="{% url 'customer_sign_up' %}">Cliente</a>
-    <a href="{% url 'adm_sign_up' %}">Admin</a>
+    <h1>{{user_register}}</h1>
+    <p>{{choose_user_type_message}}</p>
+    <a href="{% url 'customer_sign_up' %}">{{client}}</a>
+    <a href="{% url 'adm_sign_up' %}">{{admin}}</a>
 </body>
 
 {% endblock %}

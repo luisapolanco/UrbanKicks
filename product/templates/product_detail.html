@@ -5,15 +5,15 @@
 
 <body>
     <h1>{{ product.name }}</h1>
-    <p><strong>Price:</strong> ${{ product.price }}</p>
-    <p><strong>Description:</strong> {{ product.description }}</p>
-    <p><strong>Brand:</strong> {{ product.brand }}</p>
-    <p><strong>Category:</strong> {{ product.category }}</p>
-    <p><strong>Created at:</strong> {{ product.created_at }}</p>
+    <p><strong>{{price}}:</strong> ${{ product.price }}</p>
+    <p><strong>{{description}}:</strong> {{ product.description }}</p>
+    <p><strong>{{brand}}:</strong> {{ product.brand }}</p>
+    <p><strong>{{category}}:</strong> {{ product.category }}</p>
+    <p><strong>{{created_at}}:</strong> {{ product.created_at }}</p>
     <br>
     {% if user.is_customer %}
     <div class="row justify">
-        <div class="col-md-2"><strong>Quantity</strong></div>
+        <div class="col-md-2"><strong>{{quantity}}</strong></div>
         <div class="col-md-2">
             <select class="form-select" id="quantity-cart">
                 <option value="1">1</option>
@@ -25,7 +25,7 @@
         </div>
     </div>
     <br>
-    <button type="button" value="{{ product.product_id }}" class="btn btn-secondary" id="add-cart">Add to cart</button>
+    <button type="button" value="{{ product.product_id }}" class="btn btn-secondary" id="add-cart">{{add_to_cart}}</button>
     {% endif %}
     <script>
         $(document).on('click', '#add-cart', function(e){

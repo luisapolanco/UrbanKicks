@@ -4,21 +4,21 @@
 {% block content %}
 <body>
     <div>
-        <h2>Shopping cart</h2>
-        <p>View your cart...</p>
+        <h2>{{ shopping_cart }}</h2>
+        <p>{{ shopping_cart_message }}</p>
     </div>
     <br>
     <div class="container">
         {% if cart_products %}
         {% for product in cart_products %}
             <h1>{{ product.name }}</h1>
-            <p><strong>Price:</strong> ${{ product.price }}</p>
-            <p><strong>Description:</strong> {{ product.description }}</p>
-            <p><strong>Brand:</strong> {{ product.brand }}</p>
-            <p><strong>Category:</strong> {{ product.category }}</p>
-            <p><strong>Created at:</strong> {{ product.created_at }}</p>
+            <p><strong>{{ price }}:</strong> ${{ product.price }}</p>
+            <p><strong>{{description}}:</strong> {{ product.description }}</p>
+            <p><strong>{{brand}}:</strong> {{ product.brand }}</p>
+            <p><strong>{{category}}:</strong> {{ product.category }}</p>
+            <p><strong>{{created_at}}:</strong> {{ product.created_at }}</p>
             <div class="row justify">
-                <div class="col-md-2"><strong>Quantity</strong></div>
+                <div class="col-md-2"><strong>{{quantity}}</strong></div>
                 <div class="col-md-2">
                     <select class="form-select" id="select{{ product.product_id }}">
                             {% for key, value in quantities.items %}
@@ -35,15 +35,15 @@
                     </select>
                 </div>
             </div>
-            <button type="button" data-index="{{ product.product_id }}" class="btn btn-secondary update-cart">Update</button>
+            <button type="button" data-index="{{ product.product_id }}" class="btn btn-secondary update-cart">{{update}}</button>
             <br><br>
-            <button type="button" data-index="{{ product.product_id }}" class="btn btn-danger delete-product">Remove</button>
+            <button type="button" data-index="{{ product.product_id }}" class="btn btn-danger delete-product">{{delete}}</button>
             <br><br>
         {% endfor %}
-        <h3>Total: ${{ totals}}</h3>
-        <button type="submit"><a href="{% url 'order_create' %}">Pagar</a></button>
+        <h3>{{total}}: ${{ totals}}</h3>
+        <button type="submit"><a href="{% url 'order_create' %}">{{pay}}</a></button>
         {% else %}
-        There's nothing in your cart...
+        {{empty_cart_message}}
         {% endif %}
     </div>
 
