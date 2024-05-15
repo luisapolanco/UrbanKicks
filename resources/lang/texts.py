@@ -45,4 +45,13 @@ TEXTS = {
     'username': _('Nombre de usuario'),
     'password': _('Contraseña'),
     'register_message': _('¿No tiene una cuenta? Abrir cuenta'),
+    'created_necklaces':_('Collares Creados'),
+    'ID':_('ID'),
+    'material':_('material'),
+    'color':_('color'),
+    'size':_('tamaño'),
+    'text_color':_('Color de texto'),
+    'font':_('Fuente'),
+    'design':_('Diseño'),
+    'there_are_no_custom_necklaces_available':_('No hay collares personalizados disponibles'),
 }
