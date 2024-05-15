@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'order',
     'user',
     'cart',
+    'api3',
     'rest_framework',
     'api.apps.ApiConfig',
     'widget_tweaks',
