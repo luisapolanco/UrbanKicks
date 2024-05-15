@@ -54,4 +54,5 @@ TEXTS = {
     'font':_('Fuente'),
     'design':_('Diseño'),
     'there_are_no_custom_necklaces_available':_('No hay collares personalizados disponibles'),
+    'find_products':_('buscar productos'),
 }

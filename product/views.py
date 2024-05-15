@@ -25,6 +25,7 @@ class SearchProductView(View):
             'create_product' : TEXTS['create_product'],
             'create_brand' : TEXTS['create_brand'],
             'search_results' : TEXTS['search_results'],
+            'find_products' : TEXTS['find_products'],
             'results': results,
         }
         return render(request, 'search_products.html', context)

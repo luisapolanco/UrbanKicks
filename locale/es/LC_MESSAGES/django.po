@@ -1,0 +1,233 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-15 13:30-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\resources\lang\texts.py:4
+msgid "UrbanKicks"
+msgstr "UrbanKicks"
+
+#: .\resources\lang\texts.py:5
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+#: .\resources\lang\texts.py:6
+msgid "Log In"
+msgstr "Iniciar sesión"
+
+#: .\resources\lang\texts.py:7
+msgid "Iniciar sesión"
+msgstr "Iniciar sesión"
+
+#: .\resources\lang\texts.py:8
+msgid "Sign up"
+msgstr "Registrarse"
+
+#: .\resources\lang\texts.py:9
+msgid "Cart"
+msgstr "Carrito"
+
+#: .\resources\lang\texts.py:10
+msgid "Crear producto"
+msgstr "Crear producto"
+
+#: .\resources\lang\texts.py:11
+msgid "Crear marca"
+msgstr "Crear marca"
+
+#: .\resources\lang\texts.py:12
+msgid "Carrito de compras"
+msgstr "Carrito de compras"
+
+#: .\resources\lang\texts.py:13
+msgid "Ver tu carrito..."
+msgstr "Ver tu carrito..."
+
+#: .\resources\lang\texts.py:14
+msgid "Precio"
+msgstr "Precio"
+
+#: .\resources\lang\texts.py:15
+msgid "Descripción"
+msgstr "Descripción"
+
+#: .\resources\lang\texts.py:16 .\resources\lang\texts.py:41
+msgid "Marca"
+msgstr "Marca"
+
+#: .\resources\lang\texts.py:17
+msgid "Categoría"
+msgstr "Categoría"
+
+#: .\resources\lang\texts.py:18
+msgid "Fecha de creación"
+msgstr "Fecha de creación"
+
+#: .\resources\lang\texts.py:19
+msgid "Cantidad"
+msgstr "Cantidad"
+
+#: .\resources\lang\texts.py:20
+msgid "Actualizar"
+msgstr "Actualizar"
+
+#: .\resources\lang\texts.py:21
+msgid "Eliminar"
+msgstr "Eliminar"
+
+#: .\resources\lang\texts.py:22
+msgid "Total"
+msgstr "Total"
+
+#: .\resources\lang\texts.py:23
+msgid "Pagar"
+msgstr "Pagar"
+
+#: .\resources\lang\texts.py:24
+msgid "Tu carrito está vacio"
+msgstr "Tu carrito está vacío"
+
+#: .\resources\lang\texts.py:25
+msgid "Resultados de búsqueda"
+msgstr "Resultados de búsqueda"
+
+#: .\resources\lang\texts.py:26
+msgid "Crear un producto nuevo"
+msgstr "Crear un producto nuevo"
+
+#: .\resources\lang\texts.py:27
+msgid "Agregar al carrito"
+msgstr "Agregar al carrito"
+
+#: .\resources\lang\texts.py:28
+msgid "Editar"
+msgstr "Editar"
+
+#: .\resources\lang\texts.py:29
+msgid "Guardar cambios"
+msgstr "Guardar cambios"
+
+#: .\resources\lang\texts.py:30
+msgid "Eliminar producto"
+msgstr "Eliminar producto"
+
+#: .\resources\lang\texts.py:31
+msgid "Registro de usuarios"
+msgstr "Registro de usuarios"
+
+#: .\resources\lang\texts.py:32
+msgid "Seleccione el tipo de cuenta que quiere crear"
+msgstr "Seleccione el tipo de cuenta que desea crear"
+
+#: .\resources\lang\texts.py:33
+msgid "Cliente"
+msgstr "Cliente"
+
+#: .\resources\lang\texts.py:34
+msgid "Admin"
+msgstr "Admin"
+
+#: .\resources\lang\texts.py:35
+msgid "Registrar cuenta de cliente"
+msgstr "Registrar cuenta de cliente"
+
+#: .\resources\lang\texts.py:36
+msgid "Registrar cuenta de administrador"
+msgstr "Registrar cuenta de administrador"
+
+#: .\resources\lang\texts.py:37
+msgid "Registrar"
+msgstr "Registrar"
+
+#: .\resources\lang\texts.py:38
+msgid "Ingresar"
+msgstr "Ingresar"
+
+#: .\resources\lang\texts.py:39
+msgid "¿Estás seguro de querer eliminar este producto?"
+msgstr "¿Estás seguro de querer eliminar este producto?"
+
+#: .\resources\lang\texts.py:40
+msgid "Nombre de la marca"
+msgstr "Nombre de la marca"
+
+#: .\resources\lang\texts.py:42
+msgid "Imagen de la marca"
+msgstr "Imagen de la marca"
+
+#: .\resources\lang\texts.py:43
+msgid "Nombre del producto"
+msgstr "Nombre del producto"
+
+#: .\resources\lang\texts.py:44
+msgid "Imagen del producto"
+msgstr "Imagen del producto"
+
+#: .\resources\lang\texts.py:45
+msgid "Nombre de usuario"
+msgstr "Nombre de usuario"
+
+#: .\resources\lang\texts.py:46
+msgid "Contraseña"
+msgstr "Contraseña"
+
+#: .\resources\lang\texts.py:47
+msgid "¿No tiene una cuenta? Abrir cuenta"
+msgstr "¿No tiene una cuenta? Abrir cuenta"
+
+#: .\resources\lang\texts.py:48
+msgid "Collares Creados"
+msgstr "Collares creados"
+
+#: .\resources\lang\texts.py:49
+msgid "ID"
+msgstr "ID"
+
+#: .\resources\lang\texts.py:50
+msgid "material"
+msgstr "Material"
+
+#: .\resources\lang\texts.py:51
+msgid "color"
+msgstr "Color"
+
+#: .\resources\lang\texts.py:52
+msgid "tamaño"
+msgstr "Tamaño"
+
+#: .\resources\lang\texts.py:53
+msgid "Color de texto"
+msgstr "Color de texto"
+
+#: .\resources\lang\texts.py:54
+msgid "Fuente"
+msgstr "Fuente"
+
+#: .\resources\lang\texts.py:55
+msgid "Diseño"
+msgstr "Diseño"
+
+#: .\resources\lang\texts.py:56
+msgid "No hay collares personalizados disponibles"
+msgstr "No hay collares personalizados disponibles"
+
+#: .\resources\lang\texts.py:57
+#, fuzzy
+#| msgid "Crear producto"
+msgid "buscar productos"
+msgstr "buscar productos"
