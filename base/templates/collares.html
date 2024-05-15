@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block header_title %} {{subtitle}} {% endblock %}
+{% block content %}
+
+<body>
+    <h1>{{ created_necklaces }}</h1>
+    <ul>
+        {% for collar in collares %}
+        <li>
+            {{ ID }}: {{ collar.id }}, {{ material }}: {{ color }}, : {{ collar.color }},
+            {{ size }}:, {{ text_color }}: {{ collar.text_color }},
+            {{ font }}: {{ collar.font_type }}, {{ design }}: {{ collar.design }}
+        </li>
+        {% empty %}
+        <li>{{ there_are_no_custom_necklaces_available }}.</li>
+        {% endfor %}
+    </ul>
+</body>
+
+{% endblock %}
