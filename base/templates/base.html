@@ -28,6 +28,7 @@
             {% else %}
             <a class="navbar-brand" href="{% url 'login' %}">{{ login }}</a>
             <a class="navbar-brand" href="{% url 'sign_up' %}">{{ signup }}</a>
+            <a class="navbar-brand" href="{% url 'api_trend' %}">{{ trending }}</a>
             {% endif %}
             {% if user.is_authenticated and user.is_customer %}
             <form class="d-flex">

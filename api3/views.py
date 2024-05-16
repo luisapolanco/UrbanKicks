@@ -2,14 +2,12 @@ from django.shortcuts import render
 from django.views import View
 import serpapi
 import matplotlib.pyplot as plt
-from asgiref.sync import sync_to_async
 from django.conf import settings
 from resources.lang.texts import TEXTS
 # Create your views here.
 
 class TrendAdidasVsNike(View):
 
-    @sync_to_async
     def get(self, request):
 
         api_key = '379808e8ca161f334ee9be3ff082fb88f491d1650164f5131926c9f7ca140371'
@@ -47,12 +45,12 @@ class TrendAdidasVsNike(View):
         values_adidas = [data['values'][0]['value'] for data in timeline_data_adidas]
         values_nike = [data['values'][0]['value'] for data in timeline_data_nike]
 
-        plt.plot(dates_adidas[::5], values_adidas[::5], label='Adidas')
+        plt.plot(dates_adidas[::5], values_adidas[::5], label = 'Adidas')
         plt.plot(dates_nike[::5], values_nike[::5], label='Nike')
         plt.legend()
         plt.xlabel('Fecha')
         plt.ylabel('Interes')
-        plt.title('Tendencias de Google para Adidas y Nike')
+        plt.title('Tendencias de Google adidas vs nike')
         plt.xticks(rotation=90)
         plt.tight_layout()
 

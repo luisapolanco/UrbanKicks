@@ -12,6 +12,7 @@ TEXTS = {
     'shopping_cart': _('Carrito de compras'),
     'shopping_cart_message': _('Ver tu carrito...'),
     'price': _('Precio'),
+    'tendencias': _('Tendencias'),
     'description': _('Descripción'),
     'brand': _('Marca'),
     'category': _('Categoría'),

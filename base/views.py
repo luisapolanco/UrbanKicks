@@ -21,6 +21,7 @@ class HomeView(View):
             'cart_text' : TEXTS['cart'],
             'create_product' : TEXTS['create_product'],
             'create_brand' : TEXTS['create_brand'],
+            'trending' : TEXTS['tendencias'],
             'newest_products': newest_products,
             'all_products': all_products,
             'brands': brands,
