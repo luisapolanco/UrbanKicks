@@ -9,6 +9,7 @@ TEXTS = {
     'cart': _('Cart'),
     'create_product': _('Crear producto'),
     'create_brand': _('Crear marca'),
+    'create_report': _('Crear reporte'),
     'shopping_cart': _('Carrito de compras'),
     'shopping_cart_message': _('Ver tu carrito...'),
     'price': _('Precio'),

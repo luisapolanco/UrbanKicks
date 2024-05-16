@@ -38,6 +38,7 @@
             {% if user.is_authenticated and user.is_adm %}
             <a class="navbar-brand" href="{% url 'create_product' %}">{{ create_product }}</a>
             <a class="navbar-brand" href="{% url 'create_brand' %}">{{create_brand}}</a>
+            <a class="navbar-brand" href="{% url 'create_report' %}">{{create_report}}</a>
             {% endif %}
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <!-- Rest of nav items, if any -->

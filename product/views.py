@@ -7,7 +7,7 @@ from .forms import BrandForm, BrandImageForm, ProductForm, ProductImageForm
 from user.decorators import adm_access_only
 from django.utils.decorators import method_decorator
 from django.db.models import Q
-
+from report.csv_report import CsvInv
 # Create your views here.
 
 class SearchProductView(View):
@@ -216,3 +216,10 @@ class BrandProductsView(View):
         }
         return render(request, 'brand_products.html', context)
 
+class CreateReportView(View):
+    @method_decorator(adm_access_only("No estas autorizado para acceder a la pagina de admin, logeate como admin"), name='get')
+    def get(self, request, *args, **kwargs):
+        
+        generator = CsvInv()
+        csv = generator.generate_report(1)
+        return csv
